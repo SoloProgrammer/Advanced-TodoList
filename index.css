@@ -1,0 +1,287 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background: rgb(224, 247, 255);
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mb-2{
+    margin-bottom: 2rem;
+}
+
+.todoHeading {
+    color: rgb(74, 89, 104);
+}
+
+.heightFull {
+    height: 100vh;
+}
+
+.flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conatainer {
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    width: fit-content;
+    min-width: 45%;
+    padding: 1rem 2rem;
+    max-width: 670px;
+}
+
+.todo_input {
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.errorTxt {
+    position: absolute;
+    width: fit-content !important;
+    left: 0;
+    bottom: -1.4rem;
+    font-size: .7rem;
+    color: red;
+}
+
+.todo_input input {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 0 .3rem;
+}
+
+.todo_input button {
+    width: 10%;
+}
+
+.textCenter {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.todosBox {
+    padding: .1rem;
+    margin-top: 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 50vh;
+}
+
+.todo_content p{
+    word-break: break-word;
+}
+
+.totoBox {
+    /* width: 98%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    cursor: grabbing;
+    padding: .4rem;
+    flex-direction: column;
+}
+.todoData{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    margin-top: .3rem;
+    gap: .2rem;
+}
+.totoBox:hover {
+    background: rgba(223, 223, 223, 0.411);
+}
+
+input {
+    height: 39px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    background: rgba(228, 228, 228, 0.466);
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    border-radius: .2rem;
+}
+
+.operationBtn {
+    border: none;
+    min-width: 70px;
+    color: rgb(145, 145, 145);
+    font-weight: bold;
+    background: rgba(217, 217, 217, 0.736);
+    cursor: auto;
+}
+
+.errorInpt,
+.errorInpt:focus {
+    box-shadow: none !important;
+    border-color: red !important;
+}
+
+.active {
+    color: white;
+    cursor: pointer;
+    background-color: deepskyblue;
+}
+
+.todo_input button {
+    height: 40px;
+}
+
+.todo_action{
+    display: flex;
+    gap: .2rem;
+    /* margin-top: .65rem; */
+}
+
+.todo_action button {
+    min-width: 70px;
+    height: 30px;
+}
+
+.editTodoInput {
+    height: 39px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block;
+}
+
+input:focus {
+    background: white !important;
+    border-color: rgb(4, 124, 161);
+    box-shadow: inset 0 0 2px rgb(4, 124, 161);
+}
+
+.editBtn {
+    background: rgb(4, 170, 225);
+    color: white;
+    border: none;
+}
+
+.delBtn {
+    background: rgb(225, 4, 4);
+    color: white;
+    border: none;
+}
+
+/* status CSS */
+.statusBox{
+    position: relative;
+    cursor: pointer;
+}
+.status {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(0, 0, 0, .2);
+    /* border: 1px solid; */
+    padding: .5rem .8rem;
+    font-size: .65rem;
+    color: rgb(45, 66, 86);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    /* width: 110px !important; */
+
+}
+.statusMenu{
+    position: absolute;
+    width: 130px !important;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    top: -8rem;
+    left: -.3rem;
+    font-size: .8rem;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, .3);
+    background: white;
+    z-index: 1;
+}
+.blue{
+    color: rgb(0, 89, 214);
+}
+.black{
+    color: rgb(27, 27, 27);
+}
+.orangered{
+    color: rgb(194, 56, 5);
+}
+.green{
+    color: rgb(10, 177, 10);
+}
+.topplus2{
+    top: 2rem;
+}
+.statusMenu span{
+    padding: .45rem .3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.statusMenu span:hover{
+    background: rgba(228, 228, 228, 0.321);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .1), inset 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+.scheduleStatus:hover,.scheduleStatus.activeStatus{
+    background-color: rgb(235, 235, 235) !important;
+}
+.progressStatus:hover, .progressStatus.activeStatus{
+    background: rgb(219, 235, 250) !important;
+}
+.holdStatus:hover, .holdStatus.activeStatus{
+    background: rgb(243, 224, 217) !important;
+}
+.completedStatus:hover,.completedStatus.activeStatus{
+    background: rgb(219, 248, 219) !important;
+}
+
+@media screen and (max-width:770px){
+    html{
+        font-size: 90%;
+    }
+    .todo_input button{
+        width: 20%;
+    }
+    .conatainer{
+        padding: 1rem .5rem;
+        width: 93%;
+    }
+    .todo_action{
+        flex-direction: column;
+        padding: .3rem ;
+        font-size: .8rem;
+        margin-top: 0rem;
+    }
+    .totoBox{
+        gap: 10px;
+    }
+    .todosBox{
+        padding-right: .3rem;
+        padding-bottom: 1rem;
+    }
+    .todosBox{
+        padding-right: .2rem;
+    }
+    .todoData{
+        padding-left: .35rem;
+    }
+}

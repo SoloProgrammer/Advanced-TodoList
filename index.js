@@ -26,6 +26,7 @@ if (todos.length > 0) {
     updateLocalStorage(todos)
     todoHeading.innerText = "My-ToDo's"
     hideShowTodoScroll(todos)
+    hideShowSearchBtn()
 }
 
 function hideStatusMenus() {
@@ -82,6 +83,8 @@ function handleStatusChange(elm, id) {
     // console.log(todos)
     renderTodos(todos)
     updateLocalStorage(todos)
+    hideSearchInpt()
+    hideShowSearchBtn()
 }
 
 // Todos Status code ends here................................
@@ -94,7 +97,11 @@ window.addEventListener('click', () => {
 
 function updateLocalStorage(todos) {
     localStorage.setItem('todos', JSON.stringify(todos))
+}
+function hideShowSearchBtn(){
     todos.length < 1 ? searchBtn.classList.add('hide') : searchBtn.classList.remove('hide')
+}
+function updateTodoHeading(){
     todoHeading.innerText = todos.length < 1 ? 'Add your first Todo*' : "My-ToDo's"
 }
 
@@ -164,6 +171,8 @@ operationBtn.addEventListener('click', (e) => {
 
     renderTodos(todos)
     updateLocalStorage(todos)
+    hideShowSearchBtn()
+    updateTodoHeading()
     todoInput.value = ""
     operationBtn.classList.remove('active')
 })
@@ -176,6 +185,8 @@ const handleTodoActions = (type, id) => {
         renderTodos(todos)
         updateLocalStorage(todos)
         hideShowTodoScroll(todos)
+        hideShowSearchBtn()
+        updateTodoHeading()
     }
     else if (type === "edit") {
         operationBtn.classList.add('active')

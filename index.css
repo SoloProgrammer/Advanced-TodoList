@@ -227,11 +227,12 @@ input:focus {
     display: flex;
     flex-direction: column;
     background: white;
-    top: -8rem;
+    top: -7.6rem;
     left: -.3rem;
     font-size: .8rem;
     box-shadow: 0 0px 3px rgba(0, 0, 0, .3);
     background: white;
+    transition: .3s all;
     z-index: 1;
 }
 
@@ -244,7 +245,7 @@ input:focus {
 }
 
 .orangered {
-    color: rgb(194, 56, 5);
+    color: rgb(222, 62, 3);
 }
 
 .green {

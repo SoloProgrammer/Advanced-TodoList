@@ -88,8 +88,7 @@ function handleStatusChange(elm, id) {
 
 window.addEventListener('click', () => {
     hideStatusMenus()
-    searchInptBox.classList.add('hide')
-    searchBtn.classList.remove('hide')
+    hideSearchInpt()
 })
 
 function updateLocalStorage(todos) {
@@ -186,6 +185,12 @@ const handleTodoActions = (type, id) => {
     }
 }
 
+function hideSearchInpt() {
+    searchInptBox.classList.add('hide')
+    searchBtn.classList.remove('hide')
+    searchInpt.value = ""
+    renderTodos(todos)
+}
 
 searchBtn.addEventListener('click', (e) => {
     e.stopPropagation()
@@ -193,8 +198,7 @@ searchBtn.addEventListener('click', (e) => {
     searchBtn.classList.add('hide')
 })
 xmark.addEventListener('click', (e) => {
-    searchInptBox.classList.add('hide')
-    searchBtn.classList.remove('hide')
+    hideSearchInpt()
 })
 searchInpt.addEventListener('click', e => e.stopPropagation())
 searchInpt.addEventListener('input', (e) => {

@@ -295,7 +295,7 @@ button {
 
 .searchBtn {
     cursor: pointer;
-    padding: .2rem .9rem;
+    padding: .3rem .9rem;
     border-radius: 2rem;
     box-shadow: 0 0 3px rgba(0, 0, 0, .3);
     font-size: .85rem;

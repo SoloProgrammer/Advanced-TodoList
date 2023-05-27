@@ -87,7 +87,7 @@ function handleStatusChange(elm, id) {
     
     searchedTodos.length > 0 ? renderTodos(searchedTodos) : renderTodos(todos)
     if (searchedTodos.length < 1) {
-        hideSearchInpt()
+        clearSearch()
         hideShowSearchBtn()
     }
     hideShowTodoScroll(todos)
@@ -96,7 +96,7 @@ function handleStatusChange(elm, id) {
 
 window.addEventListener('click', () => {
     hideStatusMenus()
-    hideSearchInpt()
+    clearSearch()
     hideShowTodoScroll(todos)
 })
 
@@ -202,11 +202,12 @@ const handleTodoActions = (type, id) => {
     }
 }
 
-function hideSearchInpt() {
+function clearSearch() {
     searchInptBox.classList.add('hide')
     todos.length > 0 && searchBtn.classList.remove('hide')
     todosNotFound.classList.add('hide')
     searchInpt.value = ""
+    searchedTodos = []
     renderTodos(todos)
 }
 
@@ -216,7 +217,7 @@ searchBtn.addEventListener('click', (e) => {
     searchBtn.classList.add('hide')
 })
 xmark.addEventListener('click', (e) => {
-    hideSearchInpt()
+    clearSearch()
 })
 searchInpt.addEventListener('click', e => e.stopPropagation())
 searchInpt.addEventListener('input', (e) => {

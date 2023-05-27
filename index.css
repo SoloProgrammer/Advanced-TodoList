@@ -73,7 +73,7 @@ body {
 
 .todosBox {
     padding: .1rem;
-    margin-top: 1.9rem;
+    margin-top: 1.2rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -169,14 +169,16 @@ button {
     display: block;
 }
 
-input:focus {
+.todo_input input:focus {
     background: white !important;
     border-color: rgb(4, 124, 161);
     box-shadow: inset 0 0 2px rgb(4, 124, 161);
 }
-.overLine{
+
+.overLine {
     text-decoration: line-through;
 }
+
 .todo_action button:disabled {
     cursor: auto;
 }
@@ -209,7 +211,6 @@ input:focus {
 
 .status {
     box-shadow: 0 1px 1px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(0, 0, 0, .2);
-    /* border: 1px solid; */
     padding: .5rem .8rem;
     font-size: .65rem;
     color: rgb(45, 66, 86);
@@ -217,8 +218,7 @@ input:focus {
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    /* width: 110px !important; */
-
+    border-left: 4px solid;
 }
 
 .statusMenu {
@@ -241,7 +241,7 @@ input:focus {
 }
 
 .black {
-    color: rgb(27, 27, 27);
+    color: rgb(53, 52, 52);
 }
 
 .orangered {
@@ -286,6 +286,51 @@ input:focus {
     background: rgb(219, 248, 219) !important;
 }
 
+.searchBox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.searchBtn {
+    cursor: pointer;
+    padding: .2rem .9rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    font-size: .85rem;
+    color: rgb(45, 45, 45);
+    font-weight: bold;
+}
+.searchBtn:hover{
+    background: rgb(222, 246, 254);
+}
+.searchInpt {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    padding: .2rem .4rem;
+    outline: none;
+    height: 27px;
+    font-size: .9rem;
+    width: 200px;
+}
+.searchInpt:hover{
+    background: rgb(237, 237, 237);
+}
+.searchInptBox{
+    position: relative;
+}
+.searchInptBox i{
+    position: absolute;
+    background: rgb(199, 199, 199);
+    border-radius: 50%;
+    padding: .13rem .25rem;
+    top: -.3rem;
+    right: -.3rem;
+    border: 2px solid white;
+    font-size: .8rem;
+    cursor: pointer;
+}
 @media screen and (max-width:770px) {
     html {
         font-size: 90%;

@@ -10,6 +10,7 @@ let searchInptBox = document.querySelector('.searchInptBox')
 let searchBtn = document.querySelector('.searchBtn')
 let todosNotFound = document.querySelector('.todosNotFound')
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
+let searchedTodos = []
 let editId;
 
 // Todos Status code starts here................................
@@ -81,12 +82,16 @@ function handleStatusChange(elm, id) {
         return todo
     })
     // console.log(todos)
-    renderTodos(todos)
-    updateLocalStorage(todos)
-    hideSearchInpt()
-    hideShowSearchBtn()
-}
 
+    updateLocalStorage(todos)
+    
+    searchedTodos.length > 0 ? renderTodos(searchedTodos) : renderTodos(todos)
+    if (searchedTodos.length < 1) {
+        hideSearchInpt()
+        hideShowSearchBtn()
+    }
+    hideShowTodoScroll(todos)
+}
 // Todos Status code ends here................................
 
 window.addEventListener('click', () => {
@@ -98,10 +103,10 @@ window.addEventListener('click', () => {
 function updateLocalStorage(todos) {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
-function hideShowSearchBtn(){
+function hideShowSearchBtn() {
     todos.length < 1 ? searchBtn.classList.add('hide') : searchBtn.classList.remove('hide')
 }
-function updateTodoHeading(){
+function updateTodoHeading() {
     todoHeading.innerText = todos.length < 1 ? 'Add your first Todo*' : "My-ToDo's"
 }
 
@@ -216,7 +221,7 @@ xmark.addEventListener('click', (e) => {
 searchInpt.addEventListener('click', e => e.stopPropagation())
 searchInpt.addEventListener('input', (e) => {
     e.stopPropagation()
-    let searchedTodos = todos.filter(todo => {
+    searchedTodos = todos.filter(todo => {
         if (todo.title.toLowerCase().includes(e.target.value.toLowerCase())) return todo
     })
     searchedTodos.length < 1 ? todosNotFound.classList.remove('hide') : todosNotFound.classList.add('hide')

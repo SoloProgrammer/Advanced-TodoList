@@ -43,7 +43,7 @@ const handleMenuToggle = (id) => {
     let statusMenu = document.querySelector(`#menu${id}`);
     statusMenu.classList.remove('hide')
 
-    if (e.clientY < 380 && todos.length > 4) {
+    if (e.clientY < 380 && todos.length > 3) {
         statusMenu.classList.add('topplus2')
     }
     else statusMenu.classList.remove('topplus2')

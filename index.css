@@ -1,5 +1,5 @@
-*{
-    
+* {
+
     margin: 0;
     padding: 0;
 
@@ -12,7 +12,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.mb-2{
+.mb-2 {
     margin-bottom: 2rem;
 }
 
@@ -80,7 +80,7 @@ body {
     max-height: 50vh;
 }
 
-.todo_content p{
+.todo_content p {
     word-break: break-word;
 }
 
@@ -95,7 +95,8 @@ body {
     padding: .4rem;
     flex-direction: column;
 }
-.todoData{
+
+.todoData {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -103,6 +104,7 @@ body {
     margin-top: .3rem;
     gap: .2rem;
 }
+
 .totoBox:hover {
     background: rgba(223, 223, 223, 0.411);
 }
@@ -144,7 +146,7 @@ button {
     height: 40px;
 }
 
-.todo_action{
+.todo_action {
     display: flex;
     gap: .2rem;
     /* margin-top: .65rem; */
@@ -172,11 +174,21 @@ input:focus {
     border-color: rgb(4, 124, 161);
     box-shadow: inset 0 0 2px rgb(4, 124, 161);
 }
+.overLine{
+    text-decoration: line-through;
+}
+.todo_action button:disabled {
+    cursor: auto;
+}
 
 .editBtn {
     background: rgb(4, 170, 225);
     color: white;
     border: none;
+}
+
+.editBtn:disabled {
+    background: rgb(182, 228, 243);
 }
 
 .delBtn {
@@ -185,11 +197,16 @@ input:focus {
     border: none;
 }
 
+.delBtn:disabled {
+    background: rgb(241, 187, 187);
+}
+
 /* status CSS */
-.statusBox{
+.statusBox {
     position: relative;
     cursor: pointer;
 }
+
 .status {
     box-shadow: 0 1px 1px rgba(0, 0, 0, .2), inset 0 1px 1px rgba(0, 0, 0, .2);
     /* border: 1px solid; */
@@ -203,7 +220,8 @@ input:focus {
     /* width: 110px !important; */
 
 }
-.statusMenu{
+
+.statusMenu {
     position: absolute;
     width: 130px !important;
     display: flex;
@@ -216,78 +234,100 @@ input:focus {
     background: white;
     z-index: 1;
 }
-.blue{
+
+.blue {
     color: rgb(0, 89, 214);
 }
-.black{
+
+.black {
     color: rgb(27, 27, 27);
 }
-.orangered{
+
+.orangered {
     color: rgb(194, 56, 5);
 }
-.green{
+
+.green {
     color: rgb(10, 177, 10);
 }
-.topplus2{
+
+.topplus2 {
     top: 2rem !important;
 }
-.statusMenu span{
+
+.statusMenu span {
     padding: .45rem .3rem;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
-.statusMenu span:hover{
+.statusMenu span:hover {
     background: rgba(228, 228, 228, 0.321);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .1), inset 0 1px 1px rgba(0, 0, 0, .1);
 }
 
-.scheduleStatus:hover,.scheduleStatus.activeStatus{
+.scheduleStatus:hover,
+.scheduleStatus.activeStatus {
     background-color: rgb(235, 235, 235) !important;
 }
-.progressStatus:hover, .progressStatus.activeStatus{
+
+.progressStatus:hover,
+.progressStatus.activeStatus {
     background: rgb(219, 235, 250) !important;
 }
-.holdStatus:hover, .holdStatus.activeStatus{
+
+.holdStatus:hover,
+.holdStatus.activeStatus {
     background: rgb(243, 224, 217) !important;
 }
-.completedStatus:hover,.completedStatus.activeStatus{
+
+.completedStatus:hover,
+.completedStatus.activeStatus {
     background: rgb(219, 248, 219) !important;
 }
 
-@media screen and (max-width:770px){
-    html{
+@media screen and (max-width:770px) {
+    html {
         font-size: 90%;
     }
-    .todo_input button{
+
+    .todo_input button {
         width: 20%;
     }
-    .conatainer{
+
+    .conatainer {
         padding: 1rem .5rem;
         width: 93%;
     }
-    .todo_action{
+
+    .todo_action {
         flex-direction: column;
-        padding: .3rem ;
+        padding: .3rem;
         font-size: .8rem;
         margin-top: 0rem;
     }
-    .totoBox{
+
+    .totoBox {
         gap: 10px;
     }
-    .todosBox{
+
+    .todosBox {
         padding-right: .3rem;
         padding-bottom: 1rem;
     }
-    .todosBox{
+
+    .todosBox {
         padding-right: .2rem;
     }
-    .todoData{
+
+    .todoData {
         padding-left: .35rem;
     }
-    .statusMenu span{
+
+    .statusMenu span {
         padding: .58rem .3rem;
     }
-    .statusMenu{
-        top: -8.5rem;
+
+    .statusMenu {
+        top: -8.6rem;
     }
 }

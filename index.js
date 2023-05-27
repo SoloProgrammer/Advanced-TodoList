@@ -99,11 +99,11 @@ function renderTodos(todos) {
                             </div>
                             <div class="todoData">
                                 <div class="todo_content">
-                                    <p>${todo.title}</p>
+                                    <p class=${todo.status === 'Completed' && 'overLine'}>${todo.title}</p>
                                 </div>
                                 <div class="todo_action">
-                                    <button class="editBtn" onclick="handleTodoActions('edit',${todo.id})">Edit</button>
-                                    <button class="delBtn" onclick="handleTodoActions('del',${todo.id})">Delete</button>
+                                    <button class="editBtn" ${todo.status === 'Completed' ? 'disabled' : ""} onclick="handleTodoActions('edit',${todo.id})">Edit</button>
+                                    <button class="delBtn"  onclick="handleTodoActions('del',${todo.id})">Delete</button>
                                 </div>
                             </div>
                         </div>`

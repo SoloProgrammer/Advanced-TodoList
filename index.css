@@ -229,7 +229,7 @@ input:focus {
     color: rgb(10, 177, 10);
 }
 .topplus2{
-    top: 2rem;
+    top: 2rem !important;
 }
 .statusMenu span{
     padding: .45rem .3rem;
@@ -283,5 +283,11 @@ input:focus {
     }
     .todoData{
         padding-left: .35rem;
+    }
+    .statusMenu span{
+        padding: .55rem .3rem;
+    }
+    .statusMenu{
+        top: -8.5rem;
     }
 }

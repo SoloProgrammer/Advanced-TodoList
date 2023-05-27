@@ -25,7 +25,7 @@ function hideStatusMenus() {
     statusMenus.forEach(menu => menu.classList.add('hide'))
 }
 function hideShowTodoScroll() {
-    if (todos.length > 4) {
+    if (todos.length > 3) {
         todosBox.style.overflowY = 'auto'
     }
     else todosBox.style.overflowY = 'initial'

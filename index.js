@@ -8,7 +8,7 @@ let xmark = document.querySelector('.fa-xmark')
 let searchInpt = document.querySelector('.searchInpt')
 let searchInptBox = document.querySelector('.searchInptBox')
 let searchBtn = document.querySelector('.searchBtn')
-
+let todosNotFound = document.querySelector('.todosNotFound')
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let editId;
 
@@ -25,14 +25,14 @@ if (todos.length > 0) {
     renderTodos(todos)
     updateLocalStorage(todos)
     todoHeading.innerText = "My-ToDo's"
-    hideShowTodoScroll()
+    hideShowTodoScroll(todos)
 }
 
 function hideStatusMenus() {
     let statusMenus = document.querySelectorAll('.statusMenu')
     statusMenus.forEach(menu => menu.classList.add('hide'))
 }
-function hideShowTodoScroll() {
+function hideShowTodoScroll(todos) {
     if (todos.length > 3) {
         todosBox.style.overflowY = 'auto'
     }
@@ -89,6 +89,7 @@ function handleStatusChange(elm, id) {
 window.addEventListener('click', () => {
     hideStatusMenus()
     hideSearchInpt()
+    hideShowTodoScroll(todos)
 })
 
 function updateLocalStorage(todos) {
@@ -153,7 +154,7 @@ operationBtn.addEventListener('click', (e) => {
         todo.title = todoInput.value;
         todo.id = new Date().getTime()
         todos.unshift(todo);
-        hideShowTodoScroll()
+        hideShowTodoScroll(todos)
     }
     else if (e.target.innerText === 'Save') {
         todos = todos.filter(todo => todo.title = todo.id === editId ? todoInput.value : todo.title)
@@ -174,7 +175,7 @@ const handleTodoActions = (type, id) => {
         })
         renderTodos(todos)
         updateLocalStorage(todos)
-        hideShowTodoScroll()
+        hideShowTodoScroll(todos)
     }
     else if (type === "edit") {
         operationBtn.classList.add('active')
@@ -187,7 +188,8 @@ const handleTodoActions = (type, id) => {
 
 function hideSearchInpt() {
     searchInptBox.classList.add('hide')
-    searchBtn.classList.remove('hide')
+    todos.length > 0 && searchBtn.classList.remove('hide')
+    todosNotFound.classList.add('hide')
     searchInpt.value = ""
     renderTodos(todos)
 }
@@ -206,6 +208,8 @@ searchInpt.addEventListener('input', (e) => {
     let searchedTodos = todos.filter(todo => {
         if (todo.title.toLowerCase().includes(e.target.value.toLowerCase())) return todo
     })
+    searchedTodos.length < 1 ? todosNotFound.classList.remove('hide') : todosNotFound.classList.add('hide')
+    hideShowTodoScroll(searchedTodos)
     renderTodos(searchedTodos)
 })
 

@@ -180,7 +180,7 @@ operationBtn.addEventListener('click', (e) => {
 
     if (e.target.innerText === 'Add') {
         let todo = {}
-        todo.status = "Schedule"
+        todo.status = "Scheduled"
         todo.title = todoInput.value;
         todo.id = new Date().getTime()
         todos.unshift(todo);

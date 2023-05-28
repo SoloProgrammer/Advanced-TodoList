@@ -220,14 +220,17 @@ const handleTodoActions = (type, id) => {
     }
 }
 
+// Search Todos Logic starts here......
 searchBtn.addEventListener('click', (e) => {
     e.stopPropagation()
     searchInptBox.classList.remove('hide')
     searchBtn.classList.add('hide')
 })
+
 xmark.addEventListener('click', (e) => {
     clearSearch()
 })
+
 searchInpt.addEventListener('click', e => e.stopPropagation())
 searchInpt.addEventListener('input', (e) => {
     e.stopPropagation()
@@ -238,5 +241,6 @@ searchInpt.addEventListener('input', (e) => {
     hideShowTodoScroll(searchedTodos)
     renderTodos(searchedTodos)
 })
+// Search Todos Logic ends here......
 
 

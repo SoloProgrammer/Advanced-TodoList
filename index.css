@@ -278,7 +278,7 @@ button {
 
 .holdStatus:hover,
 .holdStatus.activeStatus {
-    background: rgb(243, 224, 217) !important;
+    background: rgb(251, 228, 219) !important;
 }
 
 .completedStatus:hover,
@@ -330,6 +330,9 @@ button {
     border: 2px solid white;
     font-size: .8rem;
     cursor: pointer;
+}
+.searchInptBox i:hover{
+    background: rgb(225, 223, 223);
 }
 .todosNotFound{
     width: 100%;

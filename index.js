@@ -13,8 +13,6 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let searchedTodos = []
 let editId;
 
-// Todos Status code starts here................................
-
 let colorValuesBystatus = {
     "In progress": "blue",
     "Schedule": "black",
@@ -22,23 +20,52 @@ let colorValuesBystatus = {
     "Completed": "green"
 }
 
-if (todos.length > 0) {
-    renderTodos(todos)
-    updateLocalStorage(todos)
-    todoHeading.innerText = "My-ToDo's"
-    hideShowTodoScroll(todos)
-    hideShowSearchBtn()
+// commonly used code/logic inside functions starts here.................
+
+function updateLocalStorage(todos) {
+    localStorage.setItem('todos', JSON.stringify(todos))
 }
 
-function hideStatusMenus() {
-    let statusMenus = document.querySelectorAll('.statusMenu')
-    statusMenus.forEach(menu => menu.classList.add('hide'))
+function hideShowSearchBtn() {
+    todos.length < 1 ? searchBtn.classList.add('hide') : searchBtn.classList.remove('hide')
 }
+
+function updateTodoHeading() {
+    todoHeading.innerText = todos.length < 1 ? 'Add your first Todo*' : "My-ToDo's"
+}
+
 function hideShowTodoScroll(todos) {
     if (todos.length > 3) {
         todosBox.style.overflowY = 'auto'
     }
     else todosBox.style.overflowY = 'initial'
+}
+
+function clearSearch() {
+    searchInptBox.classList.add('hide')
+    todos.length > 0 && searchBtn.classList.remove('hide')
+    todosNotFound.classList.add('hide')
+    searchInpt.value = ""
+    searchedTodos = []
+    renderTodos(todos)
+}
+
+// commonly used code/logic inside functions ends here.................
+
+
+if (todos.length > 0) {
+    renderTodos(todos)
+    todoHeading.innerText = "My-ToDo's"
+    hideShowTodoScroll(todos)
+    hideShowSearchBtn()
+}
+
+
+// Todos Status code starts here................................
+
+function hideStatusMenus() {
+    let statusMenus = document.querySelectorAll('.statusMenu')
+    statusMenus.forEach(menu => menu.classList.add('hide'))
 }
 
 const handleMenuToggle = (id) => {
@@ -53,7 +80,7 @@ const handleMenuToggle = (id) => {
     let statusMenu = document.querySelector(`#menu${id}`);
     statusMenu.classList.remove('hide')
 
-    if (e.clientY < 380 && todos.length > 3) {
+    if (e.clientY < 410 && todos.length > 3) {
         statusMenu.classList.add('topplus2')
     }
     else statusMenu.classList.remove('topplus2')
@@ -86,6 +113,7 @@ function handleStatusChange(elm, id) {
     updateLocalStorage(todos)
     
     searchedTodos.length > 0 ? renderTodos(searchedTodos) : renderTodos(todos)
+
     if (searchedTodos.length < 1) {
         clearSearch()
         hideShowSearchBtn()
@@ -99,16 +127,6 @@ window.addEventListener('click', () => {
     clearSearch()
     hideShowTodoScroll(todos)
 })
-
-function updateLocalStorage(todos) {
-    localStorage.setItem('todos', JSON.stringify(todos))
-}
-function hideShowSearchBtn() {
-    todos.length < 1 ? searchBtn.classList.add('hide') : searchBtn.classList.remove('hide')
-}
-function updateTodoHeading() {
-    todoHeading.innerText = todos.length < 1 ? 'Add your first Todo*' : "My-ToDo's"
-}
 
 function renderTodos(todos) {
 
@@ -200,15 +218,6 @@ const handleTodoActions = (type, id) => {
         todoInput.value = todoToEdit.title
         editId = todoToEdit.id
     }
-}
-
-function clearSearch() {
-    searchInptBox.classList.add('hide')
-    todos.length > 0 && searchBtn.classList.remove('hide')
-    todosNotFound.classList.add('hide')
-    searchInpt.value = ""
-    searchedTodos = []
-    renderTodos(todos)
 }
 
 searchBtn.addEventListener('click', (e) => {

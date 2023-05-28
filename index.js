@@ -135,7 +135,7 @@ function renderTodos(todos) {
         let todoHTML = `<div class="totoBox">
                             <div class="statusBox">
                                 <div id=menu${todo.id} class="statusMenu hide">
-                                    <span onclick="handleStatusChange(this,${todo.id})" class="statusName scheduleStatus ${todo.status === 'Schedule' && 'activeStatus'}">Schedule</span>
+                                    <span onclick="handleStatusChange(this,${todo.id})" class="statusName scheduleStatus ${todo.status === 'Scheduled' && 'activeStatus'}">Scheduled</span>
                                     <span onclick="handleStatusChange(this,${todo.id})" class="statusName progressStatus ${todo.status === 'In progress' && 'activeStatus'}">In progress</span>
                                     <span onclick="handleStatusChange(this,${todo.id})" class="statusName holdStatus ${todo.status === 'On hold' && 'activeStatus'}">On hold</span>
                                     <span onclick="handleStatusChange(this,${todo.id})" class="statusName completedStatus ${todo.status === 'Completed' && 'activeStatus'}">Completed</span>
